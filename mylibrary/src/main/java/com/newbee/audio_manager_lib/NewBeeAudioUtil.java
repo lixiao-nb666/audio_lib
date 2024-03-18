@@ -12,7 +12,7 @@ public class NewBeeAudioUtil {
 
     private AudioManager audioManager;
     private int volumeMaxNumb;
-    private boolean hideUi;
+
 
     public NewBeeAudioUtil(Context context) {
         audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
@@ -62,23 +62,23 @@ public class NewBeeAudioUtil {
      * 设置多媒体音量
      * 这里我只写了多媒体和通话的音量调节，其他的只是参数不同，大家可仿照
      */
-    public void setVolume(int volume) {
+    public void setVolume(int volume,boolean showUi) {
         try {
             audioManager.setStreamVolume(audioType, //音量类型
                     volume,
-                    getNeedFlags());
+                    getNeedFlags(showUi));
         } catch (Exception e) {
         }
     }
 
 
-    private int getNeedFlags(){
-        if(hideUi){
+    private int getNeedFlags(boolean showUi){
+        if(showUi){
             return  AudioManager.FLAG_PLAY_SOUND
-                        | AudioManager.FLAG_SHOW_UI;
-           
+                    | AudioManager.FLAG_SHOW_UI;
         }else {
             return AudioManager.FLAG_PLAY_SOUND;
+
         }
     }
     
@@ -86,7 +86,7 @@ public class NewBeeAudioUtil {
      * 设置多媒体音量
      * 这里我只写了多媒体和通话的音量调节，其他的只是参数不同，大家可仿照
      */
-    public void setVolumeByPercentage(int volume) {
+    public void setVolumeByPercentage(int volume,boolean showUi ) {
         try {
             int needVolume = getMaxVolume();
             if (volume <= 0) {
@@ -96,7 +96,7 @@ public class NewBeeAudioUtil {
                 needVolume = needVolume * volume / 100;
             }
             audioManager.setStreamVolume(audioType, //音量类型
-                    needVolume,getNeedFlags()
+                    needVolume,getNeedFlags(showUi)
                     );
         } catch (Exception e) {
         }
@@ -110,11 +110,11 @@ public class NewBeeAudioUtil {
 
 
 
-    public boolean valueUp(){
+    public boolean valueUp(boolean showUi){
         int volumeNumb=getVolume();
         if(volumeNumb<volumeMaxNumb){
             volumeNumb++;
-            setVolume(volumeNumb);
+            setVolume(volumeNumb,showUi);
             return true;
 
         }
@@ -122,25 +122,25 @@ public class NewBeeAudioUtil {
     }
 
 
-    public boolean valueDown(){
+    public boolean valueDown(boolean showUi){
         int volumeNumb=getVolume();
         if(volumeNumb>0){
             volumeNumb--;
-            setVolume(volumeNumb);
+            setVolume(volumeNumb,showUi);
             return true;
         }
         return false;
     }
 
 
-    public boolean valueLoop(){
+    public boolean valueLoop(boolean showUi){
         int volumeNumb=getVolume();
         if(volumeNumb<volumeMaxNumb){
             volumeNumb++;
         }else {
             volumeNumb=0;
         }
-        setVolume(volumeNumb);
+        setVolume(volumeNumb,showUi);
         return true;
     }
 
