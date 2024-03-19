@@ -3,15 +3,12 @@ plugins {
 }
 
 android {
-    namespace 'com.newbee.audio_manager_lib'
+    namespace 'com.newbee.audio_luminance_lib'
     compileSdk 32
 
     defaultConfig {
         minSdk 21
         targetSdk 32
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {

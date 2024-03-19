@@ -12,7 +12,7 @@
 
 
         <activity
-            android:name=".TestActivity"
+            android:name="com.newbee.audio_luminance_lib.TestActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:launchMode="singleTop"

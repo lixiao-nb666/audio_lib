@@ -1,4 +1,4 @@
-package com.newbee.audio_manager_lib;
+package com.newbee.audio_luminance_lib.audio;
 
 import android.content.Context;
 import android.media.AudioManager;

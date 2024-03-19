@@ -1,10 +1,13 @@
-package com.newbee.audio_manager_lib;
+package com.newbee.audio_luminance_lib;
 
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.newbee.audio_luminance_lib.audio.NewBeeAudioUtil;
+import com.newbee.audio_manager_lib.R;
 
 public class TestActivity extends AppCompatActivity {
 

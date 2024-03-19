@@ -18,6 +18,6 @@ dependencyResolutionManagement {
         maven  {url "https://repo1.maven.org/maven2"}
     }
 }
-rootProject.name = "audio_manager_lib"
+rootProject.name = "audio_luminance_lib"
 include ':app'
 include ':mylibrary'
