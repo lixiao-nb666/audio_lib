@@ -41,7 +41,7 @@ public class LuminanceNumbShowFloatView extends BaseFloatView {
 
 
     public void setShowLNumbIV(){
-        int lv=NewBeeSystemLuminanceUtil.getInstance().getValue(context);
+        int lv=LuminanceNumbShowValue.FloatViewShowValue;
         int imgRs=R.drawable.l_n_0;
         int imgTRs=R.drawable.l_t_0;
         switch (lv){

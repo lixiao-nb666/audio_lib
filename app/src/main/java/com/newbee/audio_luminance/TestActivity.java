@@ -10,6 +10,7 @@ import com.newbee.audio_luminance_lib.audio.NewBeeAudioUtil;
 
 import com.newbee.audio_luminance_lib.luminance.NewBeeSystemLuminanceUtil;
 import com.newbee.audio_luminance_lib.service.LuminanceNumbShowFloatWindowServiceManager;
+import com.newbee.audio_luminance_lib.service.float_window.LuminanceNumbShowValue;
 
 
 public class TestActivity extends AppCompatActivity {
@@ -41,6 +42,7 @@ public class TestActivity extends AppCompatActivity {
             public void onClick(View v) {
                 newBeeAudioUtil.valueLoop(true);
                 NewBeeSystemLuminanceUtil.getInstance().valueLoop(TestActivity.this);
+                LuminanceNumbShowValue.FloatViewShowValue=NewBeeSystemLuminanceUtil.getInstance().getValue(TestActivity.this);
                 LuminanceNumbShowFloatWindowServiceManager.getInstance().startShowView(TestActivity.this);
             }
         });
