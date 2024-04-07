@@ -32,6 +32,7 @@
             android:id="@+id/iv_l_t"
             android:layout_width="wrap_content"
             android:layout_height="184px"
+            android:layout_marginTop="6px"
            />
 
 
@@ -39,7 +40,7 @@
             android:id="@+id/iv_l_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4px"/>
+            />
     </LinearLayout>
 
 

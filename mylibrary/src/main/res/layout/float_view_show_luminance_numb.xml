@@ -32,14 +32,14 @@
             android:id="@+id/iv_l_t"
             android:layout_width="wrap_content"
             android:layout_height="92px"
+            android:layout_marginTop="3px"
            />
 
 
         <ImageView
             android:id="@+id/iv_l_n"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2px"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 
