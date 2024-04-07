@@ -1,4 +1,4 @@
-package com.newbee.audio_luminance_lib;
+package com.newbee.audio_luminance;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,7 +7,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.newbee.audio_luminance_lib.audio.NewBeeAudioUtil;
-import com.newbee.audio_manager_lib.R;
+
+import com.newbee.audio_luminance_lib.luminance.NewBeeSystemLuminanceUtil;
+import com.newbee.audio_luminance_lib.service.LuminanceNumbShowFloatWindowServiceManager;
+
 
 public class TestActivity extends AppCompatActivity {
 
@@ -20,19 +23,25 @@ public class TestActivity extends AppCompatActivity {
         findViewById(R.id.bt_v_a).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newBeeAudioUtil.valueUp();
+                newBeeAudioUtil.valueUp(true);
+                NewBeeSystemLuminanceUtil.getInstance().valueUp(TestActivity.this);
+
             }
         });
         findViewById(R.id.bt_v_j).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newBeeAudioUtil.valueDown();
+                NewBeeSystemLuminanceUtil.getInstance().valueDown(TestActivity.this);
+                newBeeAudioUtil.valueDown(false);
+
             }
         });
         findViewById(R.id.bt_v_loop).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newBeeAudioUtil.valueLoop();
+                newBeeAudioUtil.valueLoop(true);
+                NewBeeSystemLuminanceUtil.getInstance().valueLoop(TestActivity.this);
+                LuminanceNumbShowFloatWindowServiceManager.getInstance().startShowView(TestActivity.this);
             }
         });
     }

@@ -3,23 +3,41 @@ plugins {
 }
 
 android {
-    namespace 'com.newbee.audio_luminance_lib'
+    namespace 'com.newbee.audio_luminance'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.newbee.audio_luminance_lib"
+        applicationId "com.newbee.audio_luminance"
         minSdk 21
         targetSdk 32
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
+    }
 
+    signingConfigs {
+        release {
+            storeFile file('nrmyw1_SystemSignature.jks')
+            storePassword 'nrmyw1'
+            keyAlias 'nrmyw1'
+            keyPassword 'nrmyw1'
+        }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+            minifyEnabled false //启用Proguard
+            shrinkResources false //是否清理无用资源,依赖于minifyEnabled
+            zipAlignEnabled true //是否启用zipAlign压缩
+            pseudoLocalesEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "audio_luminance-${variant.name}-${variant.versionName}.apk"
+                }
+            }
         }
     }
     compileOptions {
